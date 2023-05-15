@@ -2,7 +2,9 @@
 
 # Dependencies
 The framework consisted of an Intel Realsense mounted on a Firebird VI robot.
+
 ROS_VERSION: kinetic
+
 tuw_multi_robot package: https://github.com/tuw-robotics/tuw_multi_robot
 
 # How to Run
