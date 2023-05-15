@@ -6,7 +6,7 @@ ROS_VERSION: kinetic <br>
 tuw_multi_robot package: https://github.com/tuw-robotics/tuw_multi_robot <br>
 
 ### How to Run
-From the catkin_ws folder, execute the following commands:
+From the catkin_ws folder, execute the following commands, each in a new terminal:
 ```linux
 roslaunch rail_segmentation rail_segmentation.launch
 rosservice call /rail_segmentaion/segment "{}"
