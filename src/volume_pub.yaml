@@ -1,0 +1,11 @@
+---
+- bounding_volume:
+    pose:
+      pose:
+        position:
+          x: 12
+          y: 14
+    dimensions:
+      x: 2
+      y: 2
+

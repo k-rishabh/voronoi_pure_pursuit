@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="corridor" default="$(find tuw_voronoi_graph)/cfg/maps/corridor/corridor_map.yaml" /> 
+    <arg name="marker_pub" default="$(find tuw_voronoi_graph)/src/marker_pub.yaml" /> 
+
+    <arg name="goals_pub" default="$(find tuw_voronoi_graph)/src/goals_pub.yaml" /> 
+
+    <node pkg="map_server" type="map_server" name="map_server" args="$(arg corridor)"/>
+
+    <!-- <node pkg="rostopic" type="rostopic" name="rostopic1" args="pub -r 10 /obstacle_marker_arr visualization_msgs/MarkerArray -f $(arg marker_pub)"/> -->
+    <node pkg="rostopic" type="rostopic" name="rostopic2" args="pub -r 10 /start_loc geometry_msgs/Point '{x: 0.0, y: 0.0, z: 0.0}'"/>
+    <!-- <node pkg="rostopic" type="rostopic" name="rostopic3" args="pub -r 10 /goals tuw_multi_robot_msgs/RobotGoalsArray -f $(arg goals_pub)"/> -->
+
+    <node pkg="tuw_voronoi_graph" type="voronoi_add_obstacle.py" name="add_obstacle"/>
+
+    <node pkg="tuw_voronoi_graph" type="tuw_voronoi_graph_node" name="voronoi_graph_node"/>
+
+    <node pkg="tuw_voronoi_graph" type="tuw_marker_placer.py" name="marker_placer"/>
+
+    <node pkg="tuw_voronoi_graph" type="tuw_robot_nav.py" name="robot_nav"/>
+
+    <!-- <node pkg="tuw_multi_robot_router" type="tuw_multi_robot_router_node" name="multi_robot_router_node"/> -->
+
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find tuw_voronoi_graph)/cfg/rviz/corridor_voronoi.rviz" />
+
+    <!-- <include file="$(find tuw_voronoi_graph)/path/filename.launch"/> -->
+</launch>

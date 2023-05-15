@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="corridor" default="$(find tuw_voronoi_graph)/cfg/maps/corridor/corridor_map.yaml" /> 
+
+    <node pkg="map_server" type="map_server" name="map_server" args="$(arg corridor)"/>
+</launch>

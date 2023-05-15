@@ -1,0 +1,8 @@
+---
+robots:
+- robot_name: "test_rob"
+  destinations:
+  - position:
+      x: 15.0
+      y: 0.5
+      z: 0.0
