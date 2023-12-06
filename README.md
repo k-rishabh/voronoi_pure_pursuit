@@ -1,4 +1,4 @@
-# Real-Time Path Planning using Voronoi Graphs
+# Path Planning using Voronoi Graphs and Pure Pursuit
 
 ### Dependencies
 The framework consisted of an Intel Realsense mounted on a Firebird VI robot. <br>
@@ -11,5 +11,5 @@ From the catkin_ws folder, execute the following commands, each in a new termina
 roslaunch rail_segmentation rail_segmentation.launch
 rosservice call /rail_segmentaion/segment "{}"
 roslaunch tuw_voronoi_graph corridor_voronoi.launch
-rostopic pub -r 
+roslaunch pure_pursuit pp.launch
 ```
